@@ -7,3 +7,4 @@ requests>=2.22.0
 pytz>=2019.3
 numpy>=1.21.2
 cfscrape @ git+https://github.com/Anorov/cloudflare-scrape.git@e510962c608382bcef5de75033d60cc98cb9561d
+cloudscraper
