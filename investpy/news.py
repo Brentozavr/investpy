@@ -24,6 +24,7 @@ def economic_calendar(
     categories=None,
     from_date=None,
     to_date=None,
+    lang=None,
 ):
     """
     This function retrieves the economic calendar, which covers financial events and indicators from all over the world
@@ -48,7 +49,8 @@ def economic_calendar(
             date from when the economic calendar will be retrieved in dd/mm/yyyy format, if None just current day's economic calendar will be retrieved.
         to_date (:obj:`str`, optional):
             date until when the economic calendar will be retrieved in dd/mm/yyyy format, if None just current day's economic calendar will be retrieved.
-
+        lang (:obj:`str`, optional):
+            site language for making search
     Returns:
         :obj:`pandas.DataFrame` - economic_calendar:
             The resulting :obj:`pandas.DataFrame` will contain the retrieved information from the economic calendar with the specified parameters
@@ -140,7 +142,10 @@ def economic_calendar(
             "ERR#0114: the introduced date value must be a string unless it is None."
         )
 
-    url = "https://www.investing.com/economic-calendar/Service/getCalendarFilteredData"
+    if lang is 'ru':
+        url = "https://ru.investing.com/economic-calendar/Service/getCalendarFilteredData"
+    else:
+        url = "https://www.investing.com/economic-calendar/Service/getCalendarFilteredData"
 
     headers = {
         "User-Agent": random_user_agent(),
